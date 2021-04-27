@@ -1,4 +1,8 @@
+package client;
+
 import java.io.IOException;
+
+import client.OpenScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

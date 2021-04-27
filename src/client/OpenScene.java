@@ -1,3 +1,5 @@
+package client;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,12 +18,11 @@ public class OpenScene {
 
     public static void openChat() {
 
-
         Parent root;
         try {
             root = FXMLLoader.load(Objects.requireNonNull(ClassLoader.getSystemResource("chat_window.fxml")));
             Stage stage = new Stage();
-            stage.setTitle("My New Stage Title");
+            stage.setTitle("Chat");
             //stage.initStyle(StageStyle.UNDECORATED);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);

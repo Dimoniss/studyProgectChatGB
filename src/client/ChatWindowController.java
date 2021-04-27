@@ -1,3 +1,5 @@
+package client;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -18,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 public class ChatWindowController {
 
     private final String SERVER_IP = "localhost";
-    private final int SERVER_PORT = 7777;
+    private final int SERVER_PORT = 8989;
 
     private static Socket clientSocket;
     private DataInputStream in;
@@ -56,15 +58,17 @@ public class ChatWindowController {
             public void run() {
                 try {
                     while (true) {
+                        System.out.println("Ready to read.");
                         String strFromServer = in.readUTF();
                         if (strFromServer.equalsIgnoreCase("/end")) {
                             break;
                         }
                         ta_display_chat.appendText("(" + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
-                                ") Server : " + strFromServer + "\n");
+                                "): " + strFromServer + "\n");
 
                     }
                 } catch (Exception e) {
+                    System.out.println("Data input error!!!");
                     e.printStackTrace();
                 }
             }
@@ -93,7 +97,7 @@ public class ChatWindowController {
         if (!tf_enter_message.getText().trim().isEmpty()) {
             try {
                 ta_display_chat.appendText("(" + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
-                        ") "+ OpenScene.name+ " : " + tf_enter_message.getText() + "\n");
+                        "): " + tf_enter_message.getText() + "\n");
                 out.writeUTF(tf_enter_message.getText());
                 tf_enter_message.clear();
                 tf_enter_message.requestFocus();
