@@ -66,7 +66,8 @@ public class ClientHandler {
                 }
 
             } else {
-                sendMsg("Login before writing a message </auth> e-mail password");
+                sendMsg("Login before writing a message </auth e-mail password>");
+                sendMsg("Guest login: email: a@gmail.com; password: 123456; lastname: Agent007");
             }
         }
     }

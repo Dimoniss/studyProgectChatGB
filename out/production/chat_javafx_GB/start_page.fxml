@@ -18,7 +18,7 @@
                   <Font name="OCR-A BT" size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="tf_name" promptText="enter name" />
+            <TextField fx:id="tf_name" disable="true" promptText="enter name" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="push the button">
                <font>
                   <Font name="OCR-B 10 BT" size="18.0" />
