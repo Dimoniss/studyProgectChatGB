@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 public class ChatWindowController {
 
     private final String SERVER_IP = "localhost";
-    private final int SERVER_PORT = 8989;
+    private final int SERVER_PORT = 44444;
 
     private static Socket clientSocket;
     private DataInputStream in;
@@ -96,8 +96,6 @@ public class ChatWindowController {
     public void sendMessage() {
         if (!tf_enter_message.getText().trim().isEmpty()) {
             try {
-                ta_display_chat.appendText("(" + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
-                        "): " + tf_enter_message.getText() + "\n");
                 out.writeUTF(tf_enter_message.getText());
                 tf_enter_message.clear();
                 tf_enter_message.requestFocus();

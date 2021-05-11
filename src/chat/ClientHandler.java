@@ -12,6 +12,7 @@ public class ClientHandler {
     private DataInputStream in;
     private DataOutputStream out;
     private String lastname = "";
+    private String email = "";
 
 
     public ClientHandler(Socket socket) {
@@ -46,15 +47,18 @@ public class ClientHandler {
             //TODO add check for the number of objects
             if (str.startsWith("/auth")) {
                 String[] parts = str.split(" ");
-                String email = parts[1];
+                String emailFromServer = parts[1];
                 String password = parts[2];
-                String lastnameFromServer = server.getAuthService().getLastnameByEmail(email);
+                String lastnameFromServer = server.getAuthService().getLastnameByEmail(emailFromServer);
 
+            //TODO verify the password
                 if (email != null) {
                     if (!server.isLastnameBusy(lastnameFromServer)) {
                         sendMsg("/auth ok " + lastnameFromServer);
                         sendMsg("to send personal messages, write </p lastname> before the message");
+                        //TODO add history to client
                         lastname = lastnameFromServer;
+                        email = emailFromServer;
                         server.broadcastMsg(lastname + " entered in chat.");
                         server.subscribe(this);
                         return;
@@ -71,6 +75,7 @@ public class ClientHandler {
             }
         }
     }
+
 
     public void sendMsg(String msg) {
         try {
@@ -140,4 +145,9 @@ public class ClientHandler {
     public String getLastname() {
         return lastname;
     }
+    public String getEmail() {
+        return email;
+    }
+
+
 }
