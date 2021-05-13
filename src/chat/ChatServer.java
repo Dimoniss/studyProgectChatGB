@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -41,16 +43,32 @@ public class ChatServer {
 
     public synchronized void subscribe(ClientHandler clientHandler) {
         clients.add(clientHandler);
-        AtomicInteger counter = new AtomicInteger();
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("chatHistory.txt")));) {
-            bufferedReader.lines().forEach(row -> {
 
-                if (counter.get() <= 100){
-                    clientHandler.sendMsg(row);
-                    counter.getAndIncrement();
+        displayingHistoryOfLastLinesOfMainChat(clientHandler, 100);
+    }
+
+    public void displayingHistoryOfLastLinesOfMainChat(ClientHandler clientHandler, int numberOfRows) {
+
+        String stringPath="chatHistory.txt";
+        int counter = 0;
+        File file = new File(stringPath);
+        try (BufferedReader bufferedReader =
+                     new BufferedReader(new InputStreamReader(new ReverseLineInputStream(file)))) {
+            ArrayList<String> rows = new ArrayList<>();
+
+            while(true) {
+                String row = bufferedReader.readLine();
+                if (row == null) break;
+                if (counter <= numberOfRows){
+                    rows.add(row);
+                    counter++;
                 }
+            }
+            Collections.reverse(rows);
+            for (String row : rows) {
+                clientHandler.sendMsg(row);
+            }
 
-            });
         } catch (IOException e) {
             e.printStackTrace();
         }
