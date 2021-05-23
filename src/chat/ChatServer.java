@@ -3,17 +3,17 @@ package chat;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ChatServer {
     private static ChatServer server;
     private final int SERVER_PORT = 44444;
     private List<ClientHandler> clients;
     private AuthService authService;
+    private ExecutorService executorService;
+
 
     public ChatServer() {
         server = this;
@@ -21,6 +21,7 @@ public class ChatServer {
             authService = new BaseAuthService();
             authService.start();
             clients = new ArrayList<>();
+            executorService = Executors.newCachedThreadPool();
 
             while (true) {
                 System.out.println("Waiting for connection.");
@@ -116,6 +117,10 @@ public class ChatServer {
 
     public static ChatServer getServer() {
         return server;
+    }
+
+    public ExecutorService getExecutorService() {
+        return executorService;
     }
 }
 

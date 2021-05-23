@@ -4,6 +4,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class ClientHandler {
@@ -112,7 +114,8 @@ public class ClientHandler {
                 closeConnection();
                 return;
             } else {
-                server.broadcastMsg(lastname + ": " + strFromClient);
+                server.broadcastMsg(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
+                                " "+ lastname + ": " + strFromClient);
             }
 
 

@@ -1,66 +1,9 @@
 Ben entered in chat.
-Lee entered in chat.
- left the chat.
-Lee entered in chat.
-Lee: hi
-Lee: how do you do
-Ben entered in chat.
-Ben: hi ben
-Ben: i am BEN
-Ben: Hi Lee
-Ben: Hi lee
-Lee: Hi ben
-Ben left the chat.
-Lee left the chat.
-Lee entered in chat.
+10:56:13 Ben: hi all
 Agent007 entered in chat.
-Agent007 entered in chat.
+10:56:46 Agent007: Hi man
+10:57:08 Ben: hi Ben
+10:58:29 Ben: hi Agent
+10:58:38 Agent007: hi BEn
 Agent007 left the chat.
-Lee entered in chat.
-Lee: 1
-Lee: 2
-Lee: 3
-Lee: 4
-Lee: 5
-Lee: 6
-Lee: 7
-Lee: 8
-Lee: 9
-Lee: 0
-Lee: 1
-Lee: 11
-Lee: 12
-Lee: 13
-Lee: 14
-Lee: 15
-Lee: 16
-Lee: 17
-Lee: 18
-Lee: 19
-Lee: 20
-Lee: 21
-Lee: 22
-Lee: 23
-Lee: 24
-Lee: 25
-Lee: 26
-Lee: 27
-Lee: 28
-Lee: 29
-Lee: 30
-Lee: 31
-Lee: 32
-Lee: 33
-Lee: 34
-Lee: 35
-Lee: 36
-Lee: 37
-Lee: 38
-Lee: 39
-Lee: 34
-Lee: 65
-Lee: +6
-Lee left the chat.
-Lee entered in chat.
-Lee left the chat.
-Lee entered in chat.
+Ben left the chat.

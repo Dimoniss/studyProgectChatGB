@@ -63,8 +63,9 @@ public class ChatWindowController {
                         if (strFromServer.equalsIgnoreCase("/end")) {
                             break;
                         }
-                        ta_display_chat.appendText("(" + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
-                                "): " + strFromServer + "\n");
+//                        ta_display_chat.appendText("(" + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
+//                                "): " + strFromServer + "\n");
+                        ta_display_chat.appendText(strFromServer + "\n");
 
                     }
                 } catch (Exception e) {
